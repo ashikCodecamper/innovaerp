@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    // Relation with Group Model
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group');
+    }
 }
