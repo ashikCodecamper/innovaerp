@@ -16,7 +16,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+// Settings routes
+Route::group(['prefix'=>'settings','middleware'=>'auth'],function() {
+    Route::get('group','GroupController@index')->name('groupindex');
+    Route::get('group-user','GroupController@groupUser')->name('groupindex');
 
+});
 // HR Vacancy ALL Routs
 
 Route::group(['prefix'=>'vacancy','middleware'=>'guest'],function() {
